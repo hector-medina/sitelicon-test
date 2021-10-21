@@ -1,0 +1,31 @@
+PRUEBA: 
+
+Puedes utilizar cualquier framework, librería o clase que necesites o creas conveniente.  
+
+1. En la siguiente web, realizar un archivo js que sea capaz de mostrar las localidades correspondientes a la provincia elegida en el primer combo. Refrescar el combo de localidades mediante AJAX a medida que cambie el valor del primero. 
+La url es la siguiente: 
+http://sitelicon.eu/test/ 
+La dirección que carga las localidades esta otra 
+http://sitelicon.eu/test/ajax_localidades.php
+Mandar únicamente un archivo js.
+
+2. Maquetar el png adjunto con los tamaños, colores y espacios que se ven en la ilustración.
+
+- El cuadro 1 y 2 no deben tener un alto fijo, únicamente deberán estar igualados en cuanto a tamaño dependiendo de cual de los cuadros sea el que tenga más contenido.
+- El pie de debe ocupar todo el ancho del monitor, si la web tiene menos alto que el de nuestro monitor, el pie deberá permanecer en la parte inferior de la web.
+- La web debe estar centrada, si nuestro monitor es más ancho, deberá quedar el mismo margen a la izquierda que a la derecha.
+- Se valorará que toda la maquetación sea responsive.
+
+3.1. Según el .sql adjunto, desarrollar un Script en PHP que se conecte a la base de datos y muestre un listado con los nombres de todos los equipos de fútbol y su imagen en caso de tenerla.
+
+3.2. Con el listado de equipos del punto anterior, desarrollar un Script en PHP que realice un calendario de fútbol con sus respectivas jornadas.
+
+- Dos equipos no se puedan enfrentar 2 veces entre ellos hasta haber completado la primera vuelta.
+- Si el partido anterior se jugó en casa el siguiente se deberá jugar fuera, y viceversa.
+- El script debe ser compatible con cualquier número de equipos definidos en la base de datos.
+- Se valorará que también sea válido con un número de equipos impar, en ese caso un equipo descansaría cada jornada.
+
+Se adjunta ejemplo de lo que se debería mostrar por pantalla en un ejemplo con 8 equipos.
+
+
+¡GRACIAS!
