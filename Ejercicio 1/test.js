@@ -23,8 +23,7 @@ $(document).ready(function(){
  */
 function loadCities( id ){
     $.ajax({url: "https://cors-anywhere.herokuapp.com/http://sitelicon.eu/test/ajax_localidades.php",
-    dataType: 'html',      
-    //dataType: 'jsonp',    
+    dataType: 'html',  
     crossDomain: true,
     type: "GET",
     data : {id:id},
