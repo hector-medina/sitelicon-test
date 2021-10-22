@@ -18,10 +18,10 @@ Class Conexion {
         $this->password = $password;
         $this->database = $database;
         $this->conect();
-    })
+    }
 
     private function conect(){
-        $this->conexion = new mysqli( $server, $user, $password, $database );
+        $this->conexion = new mysqli( $this->server, $this->user, $this->password, $this->database );
         if($this->conexion->connect_error) {
             return false;
         }
