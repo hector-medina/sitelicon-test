@@ -16,7 +16,7 @@ function getEquipos( $enListado = false ){
             FROM equipos e
             left join imagenes i on i.id_equipo=e.id
             GROUP by e.nombre
-            ORDER BY e.id;";
+            ORDER BY e.id limit 5;";
     
     $result = $conexion->execQuery( $sql );
     

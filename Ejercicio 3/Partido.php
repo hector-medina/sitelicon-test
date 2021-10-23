@@ -10,11 +10,11 @@ Class Partido {
         $this->equipo_visitante = $equipo_visitante;
     }
 
-    public function setVisitante( $visitante ){
+    public function setEquipoVisitante( $visitante ){
         $this->equipo_visitante = $visitante;
     }
 
-    public function setLocal( $local ){
+    public function setEquipoLocal( $local ){
         $this->equipo_local = $local;
     }
 
@@ -33,8 +33,16 @@ Class Partido {
         return $equipos;
     }
 
+    public function setAsPartidoVuelta(){
+        $local = $this->equipo_local;
+        $visitante = $this->equipo_visitante;
+        $this->setEquipoLocal($visitante);
+        $this->setEquipoVisitante($local);
+    }
+
     public function __toString(){
-        return $this->getEquipoLocal() . " vs " . $this->getEquipoVisitante();
+        $local = str_pad($this->getEquipoLocal(), 20, " ");
+        return  $local . "\t vs \t" . $this->getEquipoVisitante()."\n";
     }
 
 }

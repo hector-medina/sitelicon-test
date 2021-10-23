@@ -26,4 +26,15 @@ Class Liga {
         return $this->jornadas[$indice];
     }
 
+    public function __toString(){
+        $response = "";
+        foreach( $this->jornadas as $i => $jornada ){
+            $j = $i+1;
+            $response .= "************************* JORNADA $j *************************\n";
+            $response .=  $jornada ."\n";    
+            $response .= "***************************************************************\n";
+        }
+       return $response;
+    }
+
 }
