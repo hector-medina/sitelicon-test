@@ -2,48 +2,51 @@
 
 Class Equipo {
 
-    public $nombre;
-    public $oponentes_pendientes = array();
-    public $oponentes_jugados = array();
+    private $id_equipo;
+    private $nombre;
+    private $imagen;
 
 
-    public function Equipo( $nombre ){
+    public function Equipo( $id_equipo="", $nombre="", $imagen="" ){
+        if($id_equipo) $this->id_equipo = $id_equipo;
+        if($nombre) $this->nombre = $nombre;
+        if($imagen) $this->$imagen = $imagen;
+    }
+
+    public function getId(){
+        return $this->id_equipo;
+    }
+
+    public function setId( $id_equipo ){
+        $this->id_equipo = $id_equipo;
+    }
+
+    public function getNombre(){
+        return $this->nombre;
+    }
+
+    public function setNombre( $nombre ){
         $this->nombre = $nombre;
     }
 
-    // public function Equipo( $nombre, $oponentes ){
-    //     $this->$nombre = $nombre;
-    //     setOponentesPendientes( $oponentes );
-    // }
+    public function getImagen(){
+        return $this->imagen;
+    }
 
-    public function setOponentesPendientes( $oponentes ){
-        foreach( $oponentes as $oponente ){
-            if( $oponente->nombre != $this->nombre ){
-                $oponentes_pendientes[] = $oponente;
+    public function setImagen( $imagen ){
+        if($imagen){
+            $imagen = explode(",",$imagen);
+        }
+        $imagen_t = array();
+        if(is_array($imagen)){
+            foreach($imagen as $img){
+                $imagen_t[] = trim($img);
             }
         }
+        $this->imagen = $imagen_t;
     }
 
-    public function addOponentePentiente( $oponente ){
-        $found = in_array($oponente, $this->oponentes_pendientes);
-        if(!$found && $oponente!=$this->nombre){
-            $this->oponentes_pendientes[] = $oponente;
-        } 
+    public function __toString() {
+        return $this->nombre;
     }
-
-    public function setOponentesJugado( $nombre ){
-        for($i = 0 ; $i < count($oponentes_pendientes);$i++){
-            if( $oponentes_pendientes[$i]->nombre == $nombre ){
-                array_slice($oponentes_pendientes, $i, 1);
-                $oponentes_jugados[] = $nombre;
-            }
-        }
-    }
-
-    public function getRandomOponent(){
-        $num_oponents = count($this->$oponentes_pendientes);
-        $index = rand(0, $num_oponents);
-        return $this->$oponentes_pendientes[$index];
-    }
-
 }

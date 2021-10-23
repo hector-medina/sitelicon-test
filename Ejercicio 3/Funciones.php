@@ -15,7 +15,7 @@ function getEquipos( $enListado = true ){
         return false;
     }
     
-    $sql = "SELECT e.nombre, GROUP_CONCAT( i.imagen SEPARATOR ', ') as imagen
+    $sql = "SELECT e.id, e.nombre, GROUP_CONCAT( i.imagen SEPARATOR ', ') as imagen
             FROM equipos e
             left join imagenes i on i.id_equipo=e.id
             GROUP by e.nombre;";
@@ -26,7 +26,8 @@ function getEquipos( $enListado = true ){
     if ($result->num_rows > 0) {
         $equipos = array();
         while($row = $result->fetch_assoc()) {
-            $object = new StdClass();
+            $object = new Equipo($row["id_equipo"], $row["nombre"]);
+            $object->id_equipo = $row["id_equipo"];
             $object->nombre = $row["nombre"];
             if($row["imagen"]){
                 $row["imagen"] = explode(",",$row["imagen"]);

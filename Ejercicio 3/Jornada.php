@@ -2,14 +2,23 @@
 
 Class Jornada {
 
-    private $partidos[]
+    private $partidos = array();
 
 
-    public Jornadas( $partidos ){
+    public function Jornada( $partidos="") {
+    }    
+
+    public function addPartido( $partido ){
         $this->partidos[] = $partido;
     }
 
-    public getPartidos(){
+    public function getPartido( $indice ){
+        if($indice >= 0 && $indice < count($this->partidos)){
+            return $this->partidos[$indice]; 
+        }
+    }
+
+    public function getPartidos(){
         $this->partidos;
     }
 

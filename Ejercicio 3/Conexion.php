@@ -12,7 +12,7 @@ Class Conexion {
 
     private $database;
 
-    public function Conexion($server, $user, $password, $database){
+    public function Conexion($server="localhost", $user="root", $password="", $database="siteeu_test"){
         $this->server = $server;
         $this->user = $user;
         $this->password = $password;
@@ -22,7 +22,7 @@ Class Conexion {
 
     private function conect(){
         $this->conexion = new mysqli( $this->server, $this->user, $this->password, $this->database );
-        if($this->conexion->connect_error) {
+        if($this->conexion->connect_errno) {
             return false;
         }
         return true;
