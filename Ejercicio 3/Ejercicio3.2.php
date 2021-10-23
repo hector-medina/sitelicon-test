@@ -1,25 +1,15 @@
 <?php
 
-require_once "Funciones.php";
 require_once "Equipo.php";
 require_once "Liga.php";
 require_once "Partido.php";
 require_once "Jornada.php";
 
+require_once "Ejercicio3.1.php";
+
+$equipos= getEquipos(); 
 
 
-// $players = array('A','B','C','D', 'E', 'F', 'G', 'H');
-// $players = array('1','2','3','4', '5', '6', '7', '8');
-
-$players = array();
-$players[] = "Atlético de Madrid";
-$players[] = "Barcelona";
-$players[] = "Betis";
-$players[] = "Deportivo de la Coruña";
-$players[] = "Real Madrid";
-$players[] = "Real Valladolid";
-$players[] = "Sevilla";
-$players[] = "Valencia";
 
 $matches = array();
 

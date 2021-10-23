@@ -29,7 +29,7 @@ function getEquipos( $enListado = false ){
 
     $conexion->close();
     
-    if($enListado) return $equipos;  
+    if(!$enListado) return $equipos;  
     else return printEquipos( $equipos );  
 }
 
@@ -47,4 +47,4 @@ function printEquipos( $equipos ){
  echo "</ul>";
 }
 
-$equipos = getEquipos();
+$equipos = getEquipos( true );
