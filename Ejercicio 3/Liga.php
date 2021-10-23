@@ -1,50 +1,29 @@
 <?php
 
 require_once "Partido.php";
+require_once "Jornada.php";
 
 Class Liga {
 
-    public static function calcularLigaNumEquiposPar( $numEquipos ){
+    private $jornadas = array();
 
-        $numRondas = $numEquipos - 1;
-        $numPartidosPorRonda = intval($numEquipos / 2);
+    public function Liga( $num_jornadas ){
+        $this->initJornadas( $num_jornadas );
+    }
 
-        $rondas = array();
-        $k = 0;
-        for( $i = 0 ; $i < $numRondas ; $i++){
-            for( $j = 0 ; $j < $numPartidosPorRonda ; $j++ ){
-                $rondas[$i][$j] = new Partido($k, 0);
-                if( $k == $numRondas ) $k=0;
-            }
+    private function initJornadas( $num_jornadas ){
+        $num_jornadas = intval($num_jornadas);
+        for($i = 0; $i < $num_jornadas ;$i++){
+            $this->jornadas[] = new Jornada();
         }
+    }
 
-        for( $i = 0 ; $i < $numRondas ; $i++ ){
-            if( $i % 2 == 0 ){
-                $rondas[$i][0]->setVisitante( $numEquipos - 1 );
-            }
-            else{
-                $rondas[$i][0]->setVisitante( $rondas[$i][0]->getEquipoLocal() );
-                $rondas[$i][0]->setLocal( $numEquipos -1 );
-            }
-        }
+    public function getJornadas(){
+        return $this->jornadas;
+    }
 
-        $equipoMasAlto = $numEquipos -  1;
-        $equipoImparMasAlto = $equipoMasAlto -1;
-
-        $k = $equipoImparMasAlto;
-
-        for( $i = 0; $i < $numRondas ; $i++ ){
-            for( $j = 0 ; $j < $numPartidosPorRonda ; $j++ ){
-
-                $rondas[$i][$j]->setVisitante( $k );
-                $k--;
-                if( $k == -1 ) $k = $equipoImparMasAlto;
-
-            }
-        }
-
-        return $rondas;
-
+    public function getJornada( $indice ){
+        return $this->jornadas[$indice];
     }
 
 }

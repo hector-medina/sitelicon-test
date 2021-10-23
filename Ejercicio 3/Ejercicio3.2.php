@@ -7,30 +7,62 @@ require_once "Partido.php";
 require_once "Jornada.php";
 
 $equipos= getEquipos(); 
+$partidos_por_jornada = count($equipos)/2;
+$num_jornadas = count($equipos)-1;
+
+$liga = new Liga( $num_jornadas );
+
+for($i = 1 ; $i <= $num_jornadas ; $i++){
+	$partido = new Partido($equipos[0],  $equipos[$i]);
+	$liga->getJornada($i-1)->addPartido($partido);	
+}
+
+for( $i=0 ; $i < $num_jornadas ; $i++ ){
+
+	$v_index = $liga->getJornada($i)->getPartido(0)->getEquipoVisitante()->getId()-1;
+	
+	$partido = new Partido($equipos[0], $equipos[$v_index]);
+
+	print_r($partido);
+
+}
+
+// print_r($equipos);
+
+// foreach( $equipos as $e ){
+// 	if( $equipos[0] != $p2 ) $matches[][0] = $equipos[0] . " vs " . $p2;
+	
+// }
 
 
 
-$matches = array();
+
+
+
+
+
+
+// $matches = array();
 
 // foreach( $players as $p2 ){
 // 	if( $players[0] != $p2 ) $matches[][0] = $players[0] . " vs " . $p2;
 	
 // }
 
-$jornadas = array();
+// $jornadas = array();
 
-for( $i = 0; $i < 7 ; $i++ ){
-	$jornadas[$i] = new Jornada();
-}
-$i = 0;
-foreach( $players as $key => $p2 ){
-	if($players[0] != $p2 ){
-		$jornadas[$i]->addPartido(new Partido( $players[0], $p2 ));
-		$i++;
-	}
-}
+// for( $i = 0; $i < 7 ; $i++ ){
+// 	$jornadas[$i] = new Jornada();
+// }
+// $i = 0;
+// foreach( $players as $key => $p2 ){
+// 	if($players[0] != $p2 ){
+// 		$jornadas[$i]->addPartido(new Partido( $players[0], $p2 ));
+// 		$i++;
+// 	}
+// }
 
-print_r($jornadas);
+// print_r($jornadas);
 
 // print_r( $jornadas[0]->getPartido(0)->getEquipoVisitante() );
 
