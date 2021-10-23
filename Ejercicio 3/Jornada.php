@@ -50,4 +50,14 @@ Class Jornada {
         return $partidosDeVuelta;
     }
 
+    public function getPartidaDeEquipo( $equipo ){
+        $encontrado = false;
+        $indice;
+        for($i=0; $i < count($this->partidos) && !$encontrado; $i++ ){
+            $encontrado = $this->partidos[$i]->isEquipoInPartida( $equipo );
+            $indice = $i;
+        }
+        if($encontrado) return $this->getPartido($indice);
+    }
+
 }

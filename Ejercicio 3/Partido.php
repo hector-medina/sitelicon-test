@@ -45,4 +45,16 @@ Class Partido {
         return  $local . "\t vs \t" . $this->getEquipoVisitante()."\n";
     }
 
+    public function isEquipoInPartida( $equipo ){
+        return $this->isEquipoLocal($equipo) || $this->isEquipoVisitante($equipo);
+    }
+
+    public function isEquipoLocal($equipo){
+        return $this->getEquipoLocal()==$equipo;
+    }
+
+    public function isEquipoVisitante($equipo){
+        return $this->getEquipoVisitante()==$equipo;
+    }
+
 }

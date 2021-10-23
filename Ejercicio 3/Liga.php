@@ -18,6 +18,10 @@ Class Liga {
         }
     }
 
+    public function addJornada( $jornada, $indice="" ){
+        $this->jornadas[$indice] = $jornada;
+    }
+
     public function getJornadas(){
         return $this->jornadas;
     }
