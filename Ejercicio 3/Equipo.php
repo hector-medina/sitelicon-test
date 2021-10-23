@@ -47,6 +47,6 @@ Class Equipo {
     }
 
     public function __toString() {
-        return $this->nombre . " (".$this->getId().")";
+        return $this->nombre;
     }
 }
